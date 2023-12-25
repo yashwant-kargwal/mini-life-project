@@ -1,0 +1,100 @@
+// c++ age calculator made by Yashwant Kargwal
+// please note we calculate age to imagine 1 Month = 30 days 
+#include<iostream>
+#include<conio.h>
+
+using namespace std;
+
+int main()
+{
+    int td,tm,ty; //for today date , d=day m=month y=year
+    int bd,bm,by; //for birthday date , d=day m=month y=year
+    int year,month,day; // for collecting output value of year month day
+    cout<<"\n\n\t\t\t\t::Welcome to Age calculator ::\n\n";  //for collecting data of today date
+    cout<<"\t\t||Enter Today Date||";
+    cout<<"\n\n\t Date :- ";
+    cin>>td;
+    cout<<"\n\t Month :- ";
+    cin>>tm;
+    cout<<"\n\t Year :- ";
+    cin>>ty;
+
+    cout<<"\n\n\t\t ||Enter Your Birthday||";  //for collecting data of birthday date
+    cout<<"\n\n\t Date :- ";
+    cin>>bd;
+    cout<<"\n\t Month :- ";
+    cin>>bm;
+    cout<<"\n\t Year :- ";
+    cin>>by;
+        //applying condition if user input wrong year
+    if(ty<by)
+    {
+        cout<<"\t NOTE! Please input right years.";
+        goto exit;
+    }
+
+    cout<<"\n\n\t\t ::Your Age :: ";  //conditions and calculations for dates 
+    
+    if(td>=bd) // if birthday date is smaller
+    {
+        day=td-bd;
+        cout<<"\n\t Day : "<<day;
+
+        if(tm>=bm) // if birthday month is smaller
+        {
+            month=tm-bm;
+            cout<<"\t Month : "<<month;
+
+            if(ty>=by) // for year subtraction
+            {
+                year=ty-by;
+                cout<<"\t Year : "<<year<<endl<<endl;
+            }
+            
+        }
+        else // if birthday month bigger than today date
+        {
+            month=(tm+12)-bm;
+            cout<<"\t Month : "<<month;
+
+            if(ty>=by)
+            {
+                year=(ty-1)-by;
+                cout<<"\t Year : "<<year<<endl<<endl;
+            }
+
+        }
+    }
+    else // if birthday is bigger than today date
+    {
+        day=(td+30)-bd;
+        cout<<"\n\t Day : "<<day;
+
+        if(tm>=bm)
+        {
+            month=(tm-1)-bm;
+            cout<<"\t Month : "<<month;
+
+            if(ty>=by)
+            {
+                year=ty-by;
+                cout<<"\t Year : "<<year<<endl<<endl;
+            }
+        }
+        else
+        {
+            month=(tm+11)-bm;
+            cout<<"\t Month : "<<month;
+
+            if(ty>=by)
+            {
+                year=(ty-1)-by;
+                cout<<"\t Year : "<<year<<endl<<endl;
+            }
+        }
+    }
+
+    exit:
+    getch();
+    return 0;
+}
